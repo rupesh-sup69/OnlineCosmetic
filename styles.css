@@ -1,0 +1,52 @@
+/* Main styles for Glamour Cosmetics */
+
+.brand-filter-btn.active, .category-filter-btn.active {
+    background-color: #f43f5e;
+    color: white;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-enter {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.cart-item-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 300ms ease-in;
+}
+
+.cart-item-exit {
+    opacity: 1;
+}
+
+.cart-item-exit-active {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 300ms ease-in;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #f43f5e;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.category-tab.active {
+    border-bottom: 3px solid #f43f5e;
+    color: #f43f5e;
+}
