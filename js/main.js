@@ -18,14 +18,73 @@ const productsGrid = document.getElementById('products-grid');
 let currentBrand = 'all';
 let currentCategory = 'all';
 
+// Theme Switching Variables
+const themeToggleBtn = document.getElementById('theme-toggle-btn');
+const htmlElement = document.documentElement;
+const themeToggleBtnIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null; // Check if button exists
+
+const THEME_LIGHT = 'light';
+const THEME_DARK = 'dark';
+const THEME_STORAGE_KEY = 'themePreference';
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
     setupEventListeners();
+    initializeTheme(); // Initialize theme after other setups
 });
+
+// --- Theme Switching Functions ---
+
+// Apply the selected theme
+function applyTheme(theme) {
+    if (!themeToggleBtnIcon) return; // Guard clause if icon element isn't found
+
+    if (theme === THEME_DARK) {
+        htmlElement.classList.add('dark');
+        themeToggleBtnIcon.classList.remove('fa-sun');
+        themeToggleBtnIcon.classList.add('fa-moon');
+    } else {
+        htmlElement.classList.remove('dark');
+        themeToggleBtnIcon.classList.remove('fa-moon');
+        themeToggleBtnIcon.classList.add('fa-sun');
+    }
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+}
+
+// Toggle between light and dark theme
+function toggleTheme() {
+    if (htmlElement.classList.contains('dark')) {
+        applyTheme(THEME_LIGHT);
+    } else {
+        applyTheme(THEME_DARK);
+    }
+}
+
+// Initialize theme based on localStorage or system preference
+function initializeTheme() {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else {
+        // Check system preference if no theme is saved
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            applyTheme(THEME_DARK);
+        } else {
+            applyTheme(THEME_LIGHT); // Default to light theme
+        }
+    }
+}
+
+// --- End Theme Switching Functions ---
 
 // Setup all event listeners
 function setupEventListeners() {
+    // Theme toggle button
+    if (themeToggleBtn) { // Check if button exists before adding listener
+        themeToggleBtn.addEventListener('click', toggleTheme);
+    }
+
     // Cart toggle
     cartBtn.addEventListener('click', toggleCart);
     closeCartBtn.addEventListener('click', toggleCart);

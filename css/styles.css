@@ -48,3 +48,15 @@
     bottom: 20px !important;
   } */
 
+/* Dark Mode Styles */
+.dark .product-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Increased opacity for dark shadow */
+}
+
+/*
+  Considered .dark .brand-filter-btn.active and .dark .category-tab.active
+  but decided the existing styles are likely sufficient as they use a strong
+  pink color (#f43f5e) which should contrast well with dark backgrounds,
+  and the text color is white or the same pink.
+*/
+

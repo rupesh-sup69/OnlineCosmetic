@@ -8,83 +8,89 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-50 dark:bg-gray-900 font-sans">
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <i class="fas fa-paint-brush text-2xl text-pink-500 mr-2"></i>
-                <h1 class="text-xl font-bold text-gray-800">Glamour Cosmetics</h1>
+                <i class="fas fa-paint-brush text-2xl text-pink-500 dark:text-pink-400 mr-2"></i>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white">Glamour Cosmetics</h1>
             </div>
             <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-700 hover:text-pink-500 font-medium">Home</a>
-                <a href="#products" class="text-gray-700 hover:text-pink-500 font-medium">Products</a>
-                <a href="#brands" class="text-gray-700 hover:text-pink-500 font-medium">Brands</a>
-                <a href="#about" class="text-gray-700 hover:text-pink-500 font-medium">About</a>
-                <a href="#contact" class="text-gray-700 hover:text-pink-500 font-medium">Contact</a>
-                <button id="voice-assistant">Need Help? 🎙️</button>
+                <a href="#home" class="text-gray-700 hover:text-pink-500 dark:text-gray-300 dark:hover:text-pink-400 font-medium">Home</a>
+                <a href="#products" class="text-gray-700 hover:text-pink-500 dark:text-gray-300 dark:hover:text-pink-400 font-medium">Products</a>
+                <a href="#brands" class="text-gray-700 hover:text-pink-500 dark:text-gray-300 dark:hover:text-pink-400 font-medium">Brands</a>
+                <a href="#about" class="text-gray-700 hover:text-pink-500 dark:text-gray-300 dark:hover:text-pink-400 font-medium">About</a>
+                <a href="#contact" class="text-gray-700 hover:text-pink-500 dark:text-gray-300 dark:hover:text-pink-400 font-medium">Contact</a>
+                <button id="voice-assistant" class="text-gray-700 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400">Need Help? 🎙️</button>
             </nav>
-            <div class="relative">
-                <button id="cart-btn" class="text-gray-700 hover:text-pink-500 relative">
-                    <i class="fas fa-shopping-cart text-xl"></i>
-                    <span id="cart-badge" class="cart-badge hidden">0</span>
+            <!-- Controls Group -->
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle-btn" class="text-gray-700 hover:text-pink-500 dark:text-gray-300 dark:hover:text-pink-400">
+                    <i class="fas fa-sun text-xl"></i> <!-- Default to sun icon -->
+                </button>
+                <div class="relative"> <!-- Keep this div for cart badge positioning -->
+                    <button id="cart-btn" class="text-gray-700 hover:text-pink-500 dark:text-gray-300 dark:hover:text-pink-400 relative">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-badge" class="cart-badge hidden">0</span>
+                    </button>
+                </div>
+                <button class="md:hidden text-gray-700 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400"> <!-- Mobile menu button -->
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
-            <button class="md:hidden text-gray-700">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-pink-100 to-purple-100 py-16">
+    <section class="bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-800 dark:to-purple-800 py-16">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Discover Your Beauty</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">Premium cosmetics from top brands to enhance your natural beauty</p>
-            <button class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-6 rounded-full transition duration-300">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">Discover Your Beauty</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">Premium cosmetics from top brands to enhance your natural beauty</p>
+            <button class="bg-pink-500 hover:bg-pink-600 dark:bg-pink-600 dark:hover:bg-pink-700 text-white font-medium py-2 px-6 rounded-full transition duration-300">
                 Shop Now
             </button>
         </div>
     </section>
 
     <!-- Category Tabs -->
-    <section class="py-6 bg-white border-b border-gray-200">
+    <section class="py-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div class="container mx-auto px-4 overflow-x-auto">
             <div class="flex space-x-8 whitespace-nowrap">
-                <button class="category-tab active px-1 py-2 font-medium text-gray-700 transition" data-category="all">All Products</button>
-                <button class="category-tab px-1 py-2 font-medium text-gray-700 transition" data-category="face">Face</button>
-                <button class="category-tab px-1 py-2 font-medium text-gray-700 transition" data-category="eyes">Eyes</button>
-                <button class="category-tab px-1 py-2 font-medium text-gray-700 transition" data-category="lips">Lips</button>
-                <button class="category-tab px-1 py-2 font-medium text-gray-700 transition" data-category="skincare">Skincare</button>
-                <button class="category-tab px-1 py-2 font-medium text-gray-700 transition" data-category="sunscreen">Sunscreen</button>
-                <button class="category-tab px-1 py-2 font-medium text-gray-700 transition" data-category="powder">Powder</button>
-                <button class="category-tab px-1 py-2 font-medium text-gray-700 transition" data-category="perfume">Perfume</button>
+                <button class="category-tab active px-1 py-2 font-medium text-gray-700 dark:text-gray-300 dark:hover:text-pink-400 transition" data-category="all">All Products</button>
+                <button class="category-tab px-1 py-2 font-medium text-gray-700 dark:text-gray-300 dark:hover:text-pink-400 transition" data-category="face">Face</button>
+                <button class="category-tab px-1 py-2 font-medium text-gray-700 dark:text-gray-300 dark:hover:text-pink-400 transition" data-category="eyes">Eyes</button>
+                <button class="category-tab px-1 py-2 font-medium text-gray-700 dark:text-gray-300 dark:hover:text-pink-400 transition" data-category="lips">Lips</button>
+                <button class="category-tab px-1 py-2 font-medium text-gray-700 dark:text-gray-300 dark:hover:text-pink-400 transition" data-category="skincare">Skincare</button>
+                <button class="category-tab px-1 py-2 font-medium text-gray-700 dark:text-gray-300 dark:hover:text-pink-400 transition" data-category="sunscreen">Sunscreen</button>
+                <button class="category-tab px-1 py-2 font-medium text-gray-700 dark:text-gray-300 dark:hover:text-pink-400 transition" data-category="powder">Powder</button>
+                <button class="category-tab px-1 py-2 font-medium text-gray-700 dark:text-gray-300 dark:hover:text-pink-400 transition" data-category="perfume">Perfume</button>
             </div>
         </div>
     </section>
 
     <!-- Brand Filter -->
-    <section id="brands" class="py-8 bg-white">
+    <section id="brands" class="py-8 bg-white dark:bg-gray-800">
         <div class="container mx-auto px-4">
-            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Shop by Brand</h3>
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center">Shop by Brand</h3>
             <div class="flex flex-wrap justify-center gap-3">
-                <button class="brand-filter-btn active px-4 py-2 rounded-full border border-gray-200 hover:bg-pink-50 transition" data-brand="all">All Brands</button>
-                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 hover:bg-pink-50 transition" data-brand="maybelline">
+                <button class="brand-filter-btn active px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-gray-700 dark:text-gray-300 transition" data-brand="all">All Brands</button>
+                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-gray-700 transition" data-brand="maybelline">
                     <img src="https://logos-world.net/wp-content/uploads/2020/04/Maybelline-Logo.png" alt="Maybelline" class="h-6">
                 </button>
-                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 hover:bg-pink-50 transition" data-brand="loreal">
+                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-gray-700 transition" data-brand="loreal">
                     <img src="https://logos-world.net/wp-content/uploads/2020/04/LOr%C3%A9al-Logo.png" alt="L'Oreal" class="h-6">
                 </button>
-                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 hover:bg-pink-50 transition" data-brand="nyx">
+                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-gray-700 transition" data-brand="nyx">
                     <img src="https://logos-world.net/wp-content/uploads/2021/08/NYX-Logo.png" alt="NYX" class="h-6">
                 </button>
-                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 hover:bg-pink-50 transition" data-brand="revlon">
+                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-gray-700 transition" data-brand="revlon">
                     <img src="https://logos-world.net/wp-content/uploads/2020/11/Revlon-Logo.png" alt="Revlon" class="h-6">
                 </button>
-                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 hover:bg-pink-50 transition" data-brand="neutrogena">
+                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-gray-700 transition" data-brand="neutrogena">
                     <img src="https://logos-world.net/wp-content/uploads/2022/01/Neutrogena-Logo.png" alt="Neutrogena" class="h-6">
                 </button>
-                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 hover:bg-pink-50 transition" data-brand="chanel">
+                <button class="brand-filter-btn px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 hover:bg-pink-50 dark:hover:bg-gray-700 transition" data-brand="chanel">
                     <img src="https://logos-world.net/wp-content/uploads/2020/04/Chanel-Logo.png" alt="Chanel" class="h-6">
                 </button>
             </div>
@@ -92,7 +98,7 @@
     </section>
 
     <!-- Products Grid -->
-    <section id="products" class="py-12 bg-gray-50">
+    <section id="products" class="py-12 bg-gray-50 dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="products-grid">
                 <!-- Products will be loaded here by JavaScript -->
@@ -101,11 +107,11 @@
     </section>
 
     <!-- Cart Sidebar -->
-    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white dark:bg-gray-800 shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
         <div class="p-6">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-bold text-gray-800">Your Cart</h3>
-                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white">Your Cart</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -114,21 +120,21 @@
                 <!-- Cart items will be loaded here by JavaScript -->
             </div>
             
-            <div id="empty-cart-message" class="text-center py-8 text-gray-500">
+            <div id="empty-cart-message" class="text-center py-8 text-gray-500 dark:text-gray-400">
                 <i class="fas fa-shopping-cart text-4xl mb-4"></i>
                 <p>Your cart is empty</p>
             </div>
             
-            <div class="border-t border-gray-200 pt-4">
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
                 <div class="flex justify-between mb-2">
-                    <span class="text-gray-600">Subtotal</span>
-                    <span id="cart-subtotal" class="font-medium">$0.00</span>
+                    <span class="text-gray-600 dark:text-gray-300">Subtotal</span>
+                    <span id="cart-subtotal" class="font-medium text-gray-800 dark:text-white">$0.00</span>
                 </div>
                 <div class="flex justify-between mb-4">
-                    <span class="text-gray-600">Total</span>
-                    <span id="cart-total" class="font-bold text-lg">$0.00</span>
+                    <span class="text-gray-600 dark:text-gray-300">Total</span>
+                    <span id="cart-total" class="font-bold text-lg text-gray-800 dark:text-white">$0.00</span>
                 </div>
-                <button id="checkout-btn" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                <button id="checkout-btn" class="w-full bg-pink-500 hover:bg-pink-600 dark:bg-pink-600 dark:hover:bg-pink-700 text-white font-medium py-2 rounded-lg transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                     Checkout via WhatsApp
                 </button>
     
@@ -140,7 +146,7 @@
     <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <!-- Image Column -->
@@ -149,24 +155,24 @@
                 </div>
                 <!-- Content Column -->
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Cosmetic Hub</h2>
-                    <p class="text-gray-600 mb-6">At Cosmetic Hub, we believe beauty should be accessible, fun, and personalized. Founded in 2015, we've grown from a small boutique to a trusted name in premium cosmetics.</p>
-                    <p class="text-gray-600 mb-6">Our products are carefully curated and cruelty-free, formulated with high-quality ingredients to enhance your natural beauty without compromise.</p>
-                    <p class="text-gray-600 mb-8">We're committed to sustainability, using eco-friendly packaging and supporting ethical sourcing practices throughout our supply chain.</p>
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">About Cosmetic Hub</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">At Cosmetic Hub, we believe beauty should be accessible, fun, and personalized. Founded in 2015, we've grown from a small boutique to a trusted name in premium cosmetics.</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Our products are carefully curated and cruelty-free, formulated with high-quality ingredients to enhance your natural beauty without compromise.</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8">We're committed to sustainability, using eco-friendly packaging and supporting ethical sourcing practices throughout our supply chain.</p>
                     
                     <!-- Stats Grid -->
                     <div class="grid grid-cols-3 gap-8">
                         <div>
-                            <h3 class="text-3xl font-bold text-pink-500">500+</h3>
-                            <p class="text-gray-600">Products</p>
+                            <h3 class="text-3xl font-bold text-pink-500 dark:text-pink-400">500+</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Products</p>
                         </div>
                         <div>
-                            <h3 class="text-3xl font-bold text-pink-500">50K+</h3>
-                            <p class="text-gray-600">Happy Customers</p>
+                            <h3 class="text-3xl font-bold text-pink-500 dark:text-pink-400">50K+</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Happy Customers</p>
                         </div>
                         <div>
-                            <h3 class="text-3xl font-bold text-pink-500">100%</h3>
-                            <p class="text-gray-600">Cruelty-Free</p>
+                            <h3 class="text-3xl font-bold text-pink-500 dark:text-pink-400">100%</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Cruelty-Free</p>
                         </div>
                     </div>
                 </div>
@@ -175,69 +181,69 @@
     </section>
 
     <!-- Customer Reviews Section -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-gray-50 dark:bg-gray-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 text-center mb-12">What Our Customers Say</h2>
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white text-center mb-12">What Our Customers Say</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Review 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center text-yellow-400 mb-4">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center text-yellow-400 dark:text-yellow-300 mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-600 mb-6">"The Hydrating Serum transformed my dry skin! I've never felt my skin so soft and glowing. Will definitely repurchase."</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">"The Hydrating Serum transformed my dry skin! I've never felt my skin so soft and glowing. Will definitely repurchase."</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-user text-gray-500"></i>
+                        <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-gray-500 dark:text-gray-400"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-800">Sarah J.</h4>
-                            <p class="text-sm text-gray-500">Verified Buyer</p>
+                            <h4 class="font-semibold text-gray-800 dark:text-white">Sarah J.</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Verified Buyer</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Review 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center text-yellow-400 mb-4">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center text-yellow-400 dark:text-yellow-300 mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-600 mb-6">"The Matte Lipstick stays on all day without drying my lips. The color selection is amazing too!"</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">"The Matte Lipstick stays on all day without drying my lips. The color selection is amazing too!"</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-user text-gray-500"></i>
+                        <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-gray-500 dark:text-gray-400"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-800">Emily R.</h4>
-                            <p class="text-sm text-gray-500">Verified Buyer</p>
+                            <h4 class="font-semibold text-gray-800 dark:text-white">Emily R.</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Verified Buyer</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Review 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <div class="flex items-center text-yellow-400 mb-4">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                    <div class="flex items-center text-yellow-400 dark:text-yellow-300 mb-4">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <p class="text-gray-600 mb-6">"I love the Repairing Hair Mask! My hair feels so much healthier after just a few uses. Great value for money."</p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">"I love the Repairing Hair Mask! My hair feels so much healthier after just a few uses. Great value for money."</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mr-3">
-                            <i class="fas fa-user text-gray-500"></i>
+                        <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-gray-500 dark:text-gray-400"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-gray-800">Michael T.</h4>
-                            <p class="text-sm text-gray-500">Verified Buyer</p>
+                            <h4 class="font-semibold text-gray-800 dark:text-white">Michael T.</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Verified Buyer</p>
                         </div>
                     </div>
                 </div>
@@ -246,84 +252,84 @@
     </section>
 
     <!-- Core Values Section -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-gray-50 dark:bg-gray-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Our Core Values</h2>
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-12 text-center">Our Core Values</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <i class="fas fa-leaf text-3xl text-pink-500 mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Quality Ingredients</h3>
-                    <p class="text-gray-600">We source the highest quality natural ingredients for all our formulations.</p>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                    <i class="fas fa-leaf text-3xl text-pink-500 dark:text-pink-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Quality Ingredients</h3>
+                    <p class="text-gray-600 dark:text-gray-300">We source the highest quality natural ingredients for all our formulations.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <i class="fas fa-flask text-3xl text-pink-500 mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Rigorous Testing</h3>
-                    <p class="text-gray-600">Every product undergoes extensive testing to ensure safety and effectiveness.</p>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                    <i class="fas fa-flask text-3xl text-pink-500 dark:text-pink-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Rigorous Testing</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Every product undergoes extensive testing to ensure safety and effectiveness.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <i class="fas fa-recycle text-3xl text-pink-500 mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Sustainability</h3>
-                    <p class="text-gray-600">We're committed to reducing our environmental footprint at every step.</p>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                    <i class="fas fa-recycle text-3xl text-pink-500 dark:text-pink-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Sustainability</h3>
+                    <p class="text-gray-600 dark:text-gray-300">We're committed to reducing our environmental footprint at every step.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm">
-                    <i class="fas fa-heart text-3xl text-pink-500 mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Community Impact</h3>
-                    <p class="text-gray-600">We give back to communities and support organizations that empower women.</p>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+                    <i class="fas fa-heart text-3xl text-pink-500 dark:text-pink-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Community Impact</h3>
+                    <p class="text-gray-600 dark:text-gray-300">We give back to communities and support organizations that empower women.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-white dark:bg-gray-800">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Customer Love</h2>
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-12 text-center">Customer Love</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <p class="text-gray-600 mb-4">"I've been using the Hydrating Facial Serum for a month now, and the difference in my skin is incredible. It's more hydrated, plump, and the fine lines around my eyes have visibly reduced. This is now a permanent part of my skincare routine!"</p>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"I've been using the Hydrating Facial Serum for a month now, and the difference in my skin is incredible. It's more hydrated, plump, and the fine lines around my eyes have visibly reduced. This is now a permanent part of my skincare routine!"</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-pink-500"></i>
+                        <div class="w-12 h-12 bg-pink-100 dark:bg-pink-800 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-pink-500 dark:text-pink-400"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Emily Johnson</h4>
-                            <p class="text-gray-500 text-sm">Verified Customer</p>
+                            <h4 class="font-bold text-gray-800 dark:text-white">Emily Johnson</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Verified Customer</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <p class="text-gray-600 mb-4">"The Matte Liquid Lipstick is a game-changer! It stays on all day without drying my lips, and the color is stunning. I've received so many compliments every time I wear it. Can't wait to try more shades!"</p>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"The Matte Liquid Lipstick is a game-changer! It stays on all day without drying my lips, and the color is stunning. I've received so many compliments every time I wear it. Can't wait to try more shades!"</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-pink-500"></i>
+                        <div class="w-12 h-12 bg-pink-100 dark:bg-pink-800 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-pink-500 dark:text-pink-400"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Sophia Martinez</h4>
-                            <p class="text-gray-500 text-sm">Makeup Artist</p>
+                            <h4 class="font-bold text-gray-800 dark:text-white">Sophia Martinez</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Makeup Artist</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <p class="text-gray-600 mb-4">"As someone with sensitive skin, I'm always careful about what products I use. The Clay Purifying Mask has been incredibly gentle yet effective. My skin feels cleaner and my pores look visibly smaller. Love that it's made with natural ingredients!"</p>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"As someone with sensitive skin, I'm always careful about what products I use. The Clay Purifying Mask has been incredibly gentle yet effective. My skin feels cleaner and my pores look visibly smaller. Love that it's made with natural ingredients!"</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-pink-500"></i>
+                        <div class="w-12 h-12 bg-pink-100 dark:bg-pink-800 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-pink-500 dark:text-pink-400"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Michael Chen</h4>
-                            <p class="text-gray-500 text-sm">Skincare Enthusiast</p>
+                            <h4 class="font-bold text-gray-800 dark:text-white">Michael Chen</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Skincare Enthusiast</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <p class="text-gray-600 mb-4">"The Argan Oil Hair Serum has transformed my frizzy hair completely! My curls are now defined, shiny, and manageable. The scent is divine too! I appreciate that Cosmetic Hub uses sustainable packaging - it shows they care about our planet."</p>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"The Argan Oil Hair Serum has transformed my frizzy hair completely! My curls are now defined, shiny, and manageable. The scent is divine too! I appreciate that Cosmetic Hub uses sustainable packaging - it shows they care about our planet."</p>
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-user text-pink-500"></i>
+                        <div class="w-12 h-12 bg-pink-100 dark:bg-pink-800 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-pink-500 dark:text-pink-400"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Olivia Williams</h4>
-                            <p class="text-gray-500 text-sm">Hairstylist</p>
+                            <h4 class="font-bold text-gray-800 dark:text-white">Olivia Williams</h4>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">Hairstylist</p>
                         </div>
                     </div>
                 </div>
@@ -332,12 +338,12 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
+    <section id="contact" class="py-16 bg-gray-50 dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Get In Touch</h2>
-                    <p class="text-gray-600 mb-8">Have questions about our products or need beauty advice? We're here to help. You can reach us through WhatsApp or fill out the form below.</p>
+                    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">Get In Touch</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8">Have questions about our products or need beauty advice? We're here to help. You can reach us through WhatsApp or fill out the form below.</p>
                     
                     <!-- WhatsApp Button -->
                     <div class="mb-8">
@@ -345,28 +351,28 @@
                             <i class="fab fa-whatsapp text-2xl mr-3"></i>
                             Chat with us on WhatsApp
                         </a>
-                        <p class="text-sm text-gray-500 text-center">Click to start a conversation with our beauty experts</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 text-center">Click to start a conversation with our beauty experts</p>
                     </div>
 
                     <form id="contact-form" class="space-y-4">
                         <div>
-                            <label class="block text-gray-700 mb-2" for="name">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <label class="block text-gray-700 dark:text-gray-300 mb-2" for="name">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 dark:focus:ring-pink-400">
                         </div>
                         <div>
-                            <label class="block text-gray-700 mb-2" for="email">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <label class="block text-gray-700 dark:text-gray-300 mb-2" for="email">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 dark:focus:ring-pink-400">
                         </div>
                         <div>
-                            <label class="block text-gray-700 mb-2" for="subject">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <label class="block text-gray-700 dark:text-gray-300 mb-2" for="subject">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 dark:focus:ring-pink-400">
                         </div>
                         <div>
-                            <label class="block text-gray-700 mb-2" for="message">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"></textarea>
+                            <label class="block text-gray-700 dark:text-gray-300 mb-2" for="message">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 dark:focus:ring-pink-400"></textarea>
                         </div>
                         <div class="flex space-x-4">
-                            <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                            <button type="submit" class="bg-pink-500 hover:bg-pink-600 dark:bg-pink-600 dark:hover:bg-pink-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
                                 Send Message
                             </button>
                             <button type="button" id="whatsapp-button" class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
@@ -377,53 +383,53 @@
                 </div>
                 
                 <div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-6">Contact Information</h3>
                     <div class="space-y-6">
                         <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-pink-500 mt-1 mr-4"></i>
+                            <i class="fas fa-map-marker-alt text-pink-500 dark:text-pink-400 mt-1 mr-4"></i>
                             <div>
-                                <h4 class="font-bold text-gray-800">Our Location</h4>
-                                <p class="text-gray-600">123 Beauty Avenue, New York, NY 10001</p>
+                                <h4 class="font-bold text-gray-800 dark:text-white">Our Location</h4>
+                                <p class="text-gray-600 dark:text-gray-300">123 Beauty Avenue, New York, NY 10001</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <i class="fas fa-phone text-pink-500 mt-1 mr-4"></i>
+                            <i class="fas fa-phone text-pink-500 dark:text-pink-400 mt-1 mr-4"></i>
                             <div>
-                                <h4 class="font-bold text-gray-800">Phone Number</h4>
-                                <p class="text-gray-600">+1 (555) 123-4567</p>
+                                <h4 class="font-bold text-gray-800 dark:text-white">Phone Number</h4>
+                                <p class="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <i class="fas fa-envelope text-pink-500 mt-1 mr-4"></i>
+                            <i class="fas fa-envelope text-pink-500 dark:text-pink-400 mt-1 mr-4"></i>
                             <div>
-                                <h4 class="font-bold text-gray-800">Email Address</h4>
-                                <p class="text-gray-600">info@cosmetichub.com</p>
+                                <h4 class="font-bold text-gray-800 dark:text-white">Email Address</h4>
+                                <p class="text-gray-600 dark:text-gray-300">info@cosmetichub.com</p>
                             </div>
                         </div>
                         <div class="flex items-start">
-                            <i class="fas fa-clock text-pink-500 mt-1 mr-4"></i>
+                            <i class="fas fa-clock text-pink-500 dark:text-pink-400 mt-1 mr-4"></i>
                             <div>
-                                <h4 class="font-bold text-gray-800">Opening Hours</h4>
-                                <p class="text-gray-600">Monday to Friday: 9am - 6pm</p>
-                                <p class="text-gray-600">Saturday: 10am - 4pm</p>
-                                <p class="text-gray-600">Sunday: Closed</p>
+                                <h4 class="font-bold text-gray-800 dark:text-white">Opening Hours</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Monday to Friday: 9am - 6pm</p>
+                                <p class="text-gray-600 dark:text-gray-300">Saturday: 10am - 4pm</p>
+                                <p class="text-gray-600 dark:text-gray-300">Sunday: Closed</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="mt-8">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Follow Us</h3>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Follow Us</h3>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-gray-600 hover:text-pink-500">
+                            <a href="#" class="text-gray-600 hover:text-pink-500 dark:text-gray-400 dark:hover:text-pink-400">
                                 <i class="fab fa-facebook-f text-xl"></i>
                             </a>
-                            <a href="#" class="text-gray-600 hover:text-pink-500">
+                            <a href="#" class="text-gray-600 hover:text-pink-500 dark:text-gray-400 dark:hover:text-pink-400">
                                 <i class="fab fa-instagram text-xl"></i>
                             </a>
-                            <a href="#" class="text-gray-600 hover:text-pink-500">
+                            <a href="#" class="text-gray-600 hover:text-pink-500 dark:text-gray-400 dark:hover:text-pink-400">
                                 <i class="fab fa-twitter text-xl"></i>
                             </a>
-                            <a href="#" class="text-gray-600 hover:text-pink-500">
+                            <a href="#" class="text-gray-600 hover:text-pink-500 dark:text-gray-400 dark:hover:text-pink-400">
                                 <i class="fab fa-pinterest text-xl"></i>
                             </a>
                         </div>
@@ -434,15 +440,15 @@
     </section>
 
     <!-- Newsletter Section -->
-    <section class="py-12 bg-white">
+    <section class="py-12 bg-white dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Join Our Newsletter</h2>
-                <p class="text-gray-600 mb-6">Subscribe to receive updates on new products, special offers, and beauty tips.</p>
-                <p class="text-sm text-gray-500 mb-6">We respect your privacy. Unsubscribe at any time.</p>
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">Join Our Newsletter</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">Subscribe to receive updates on new products, special offers, and beauty tips.</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">We respect your privacy. Unsubscribe at any time.</p>
                 <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
-                    <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 dark:focus:ring-pink-400">
+                    <button type="submit" class="bg-pink-500 hover:bg-pink-600 dark:bg-pink-600 dark:hover:bg-pink-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
                         Subscribe
                     </button>
                 </form>
@@ -451,46 +457,46 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gray-900 dark:bg-gray-950 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Cosmetic Hub</h3>
-                    <p class="text-gray-400">Premium beauty products made with natural ingredients for all skin types.</p>
+                    <h3 class="text-xl font-bold mb-4 text-white">Cosmetic Hub</h3>
+                    <p class="text-gray-400 dark:text-gray-500">Premium beauty products made with natural ingredients for all skin types.</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <h4 class="text-lg font-bold mb-4 text-white">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
-                        <li><a href="#products" class="text-gray-400 hover:text-white">Products</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="#home" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Home</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Products</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">About Us</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Categories</h4>
+                    <h4 class="text-lg font-bold mb-4 text-white">Categories</h4>
                     <ul class="space-y-2">
-                        <li><a href="#products" class="text-gray-400 hover:text-white">Skincare</a></li>
-                        <li><a href="#products" class="text-gray-400 hover:text-white">Makeup</a></li>
-                        <li><a href="#products" class="text-gray-400 hover:text-white">Hair Care</a></li>
-                        <li><a href="#products" class="text-gray-400 hover:text-white">Fragrance</a></li>
-                        <li><a href="#products" class="text-gray-400 hover:text-white">New Arrivals</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Skincare</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Makeup</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Hair Care</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Fragrance</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">New Arrivals</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-4">Customer Care</h4>
+                    <h4 class="text-lg font-bold mb-4 text-white">Customer Care</h4>
                     <ul class="space-y-2">
-                        <li><a href="#faq" class="text-gray-400 hover:text-white">FAQs</a></li>
-                        <li><a href="#shipping" class="text-gray-400 hover:text-white">Shipping & Returns</a></li>
-                        <li><a href="#privacy" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
-                        <li><a href="#terms" class="text-gray-400 hover:text-white">Terms & Conditions</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact Support</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">FAQs</a></li>
+                        <li><a href="#shipping" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Shipping & Returns</a></li>
+                        <li><a href="#privacy" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Privacy Policy</a></li>
+                        <li><a href="#terms" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Terms & Conditions</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-300">Contact Support</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-400">© 2025 Cosmetic Hub. All rights reserved.</p>
+            <div class="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 dark:text-gray-500">© 2025 Cosmetic Hub. All rights reserved.</p>
             </div>
         </div>
     </footer>
